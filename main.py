@@ -1,5 +1,5 @@
 from telegram import Update
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+from telegram.ext import Updater, CommandHandler, MessageHandler, filters, CallbackContext
 import os
 
 def start(update: Update, context: CallbackContext):
@@ -82,7 +82,7 @@ def main():
 
     # Add handlers for commands and file uploads
     dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(MessageHandler(Filters.document, handle_file))
+    dp.add_handler(MessageHandler(filters.Document.ALL, handle_file))
 
     # Start the bot
     updater.start_polling()
