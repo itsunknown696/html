@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Video Player</title>
+         <style>
+             body {
+                 background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+                 color: white;
+                 font-family: Arial, sans-serif;
+                 margin: 0;
+                 padding: 20px;
+             }
+             h1 {
+                 color: #bb86fc;
+             }
+             video {
+                 width: 100%;
+                 max-width: 800px;
+                 margin: 20px 0;
+             }
+             .controls {
+                 display: flex;
+                 gap: 10px;
+                 margin-top: 10px;
+             }
+             button {
+                 background: #bb86fc;
+                 border: none;
+                 padding: 10px 20px;
+                 color: white;
+                 cursor: pointer;
+                 border-radius: 5px;
+             }
+             button:hover {
+                 background: #9a67ea;
+             }
+         </style>
+     </head>
+     <body>
+         <h1>Video Player</h1>
+         <video id="videoPlayer" controls>
+             <source src="LINK_PLACEHOLDER" type="video/mp4">
+             Your browser does not support the video tag.
+         </video>
+         <div class="controls">
+             <button onclick="skip(-10)">⏪ Skip -10s</button>
+             <button onclick="skip(10)">⏩ Skip +10s</button>
+             <button onclick="changeSpeed(0.5)">0.5x</button>
+             <button onclick="changeSpeed(1)">1x</button>
+             <button onclick="changeSpeed(1.5)">1.5x</button>
+             <button onclick="changeSpeed(2)">2x</button>
+         </div>
+         <script>
+             const video = document.getElementById('videoPlayer');
+             function skip(seconds) {
+                 video.currentTime += seconds;
+             }
+             function changeSpeed(speed) {
+                 video.playbackRate = speed;
+             }
+         </script>
+     </body>
+     </html>
