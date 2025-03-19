@@ -72,12 +72,12 @@ def handle_file(update: Update, context: CallbackContext):
 
 def main():
     # Replace with your Telegram bot token (use environment variables for security)
-    token = os.getenv("7782085620:AAG_ktDIMiH2DWIr0kO5DaeD8UjuTWOwN1U")
+    token = os.getenv("TELEGRAM_BOT_TOKEN")
     if not token:
         print("Error: Telegram bot token not found. Please set the TELEGRAM_BOT_TOKEN environment variable.")
         return
 
-    updater = Updater(token, use_context=True)
+    updater = Updater(token)
     dp = updater.dispatcher
 
     # Add handlers for commands and file uploads
